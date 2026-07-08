@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornerstone 3D Medical Imaging Viewer</title>
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>🏥 Cornerstone 3D Medical Imaging Viewer</h1>
+            <p id="status" class="status">Click "Load DICOM" to get started</p>
+        </header>
+        
+        <div class="toolbar">
+            <div class="tool-group">
+                <label for="dicom-file-input" style="display: none;"></label>
+                <input type="file" id="dicom-file-input" accept=".dcm,.dicom" style="display: none;">
+                <button id="load-btn" class="btn btn-primary" title="Load DICOM file">
+                    📂 Load DICOM
+                </button>
+                <button id="reset-btn" class="btn btn-secondary" title="Reset view to default">
+                    ↻ Reset View
+                </button>
+            </div>
+            
+            <div class="tool-group">
+                <button id="pan-btn" class="btn btn-tool" title="Pan (move image)">
+                    ✋ Pan
+                </button>
+                <button id="zoom-btn" class="btn btn-tool" title="Zoom in/out">
+                    🔍 Zoom
+                </button>
+                <button id="wwc-btn" class="btn btn-tool" title="Window/Level (brightness)">
+                    ⚪ W/L
+                </button>
+                <button id="measure-btn" class="btn btn-tool" title="Measure distance">
+                    📏 Measure
+                </button>
+            </div>
+        </div>
+
+        <main>
+            <div id="viewer-container">
+                <canvas id="canvas"></canvas>
+                <div id="loading" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Loading DICOM image...</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Cornerstone 3D v1.0 | Medical Image Viewer</p>
+            <p class="info-text">Keyboard Shortcuts: Pan (P) | Zoom (Z) | W/L (W) | Reset (R)</p>
+        </footer>
+    </div>
+    
+    <script type="module" src="src/index.js"></script>
+</body>
+</html>
